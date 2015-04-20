@@ -21,7 +21,7 @@ module EnumAccessor
       definition = options[:class_attribute] || column.to_s.pluralize.to_sym
       class_attribute definition
       class_attribute "_human_#{definition}"
-      send "#{definition}=", dict.with_indifferent_access.freeze
+      send "#{definition}=", dict.freeze
       send "_human_#{definition}=", {}
 
       # Getter
